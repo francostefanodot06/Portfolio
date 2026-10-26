@@ -168,6 +168,8 @@
 
   /* ---------- Servicios: el contador sale de la lista real ---------- */
   { const n = $$(".svc li").length, b = $("#stats li b"); if (n && b) b.dataset.count = n; }
+  /* Con JS el contador arranca en 0 y anima al entrar en pantalla; sin JS (crawlers, vistas previas) el HTML ya trae el valor real */
+  $$("#stats b[data-count]").forEach(b => { const to = parseFloat(b.dataset.count), dec = +(b.dataset.decimals || 0); b.textContent = reduce() ? to.toFixed(dec) + (b.dataset.suffix || "") : (0).toFixed(dec); });
 
   /* ---------- Formulario de contacto (el mail de destino vive en el servicio, no en el sitio) ---------- */
   const cform = $("#contactForm");
