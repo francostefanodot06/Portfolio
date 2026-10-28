@@ -210,7 +210,7 @@
   const esc = s => s.replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
   const print = (html = "", cls = "") => { const d = document.createElement("span"); d.className = "ln " + cls; d.innerHTML = html; body.appendChild(d); body.scrollTop = body.scrollHeight; };
   const pad = (s, n) => s + " ".repeat(Math.max(1, n - s.length));
-  const L = "https://www.linkedin.com/in/franco-stefano-ghiossi-hrebin-5951b534b/";
+  const L = "https://www.linkedin.com/in/francostefanoghiossihrebin/";
   const commands = {
     help: () => [`<span class="hl">${ui().helpTitle}</span>`, ...ui().help.map(([c, d]) => "  " + pad(c, 10) + " " + d)],
     whoami: () => [`<span class="ok">franco</span> · Franco Stefano Ghiossi Hrebin`, ...ui().whoami],
@@ -228,7 +228,7 @@
     puck: () => [`<span class="ok">Puck</span> · SysAdmin middleware + local LLMs (Ollama)`, `Grafana → FastAPI → Ollama → Discord  |  Open WebUI tools → Proxmox API`, `<span class="mu">→ <a href="#puck">${ui().seeProject}</a></span>`],
     uptime: () => [["Proxmox VE", "100%"], ["Jellyfin", "100%"], ["Vaultwarden", "100%"], ["Immich", "99.93%"], ["Puck", "99.79%"]].map(([n, v]) => `<span class="ok">●</span> ${pad(n, 14)}<span class="mu">${v}</span>`).concat(`<span class="mu">${ui().uptimeNote}</span>`),
     fetch: () => [`<span class="ok">franco</span>@<span class="ok">homelab</span>`, `<span class="mu">─────────────────</span>`, `<span class="hl">OS</span>     Debian GNU/Linux 13`, `<span class="hl">Host</span>   Proxmox VE (LXC + Docker)`, `<span class="hl">CPU</span>    AMD Ryzen 7 2700X`, `<span class="hl">GPU</span>    Radeon RX 9060 XT 16 GB`, `<span class="hl">RAM</span>    32 GB DDR4`, `<span class="hl">Shell</span>  bash`],
-    contact: () => [`mensaje   <a href="#contacto">${ui().formLine}</a>`, `linkedin  <a href="${L}" target="_blank" rel="noopener">franco-stefano-ghiossi-hrebin</a>`, `github    <a href="https://github.com/${USER}" target="_blank" rel="noopener">${USER}</a>`],
+    contact: () => [`mensaje   <a href="#contacto">${ui().formLine}</a>`, `linkedin  <a href="${L}" target="_blank" rel="noopener">francostefanoghiossihrebin</a>`, `github    <a href="https://github.com/${USER}" target="_blank" rel="noopener">${USER}</a>`],
     cv: () => { const a = document.createElement("a"); a.href = cvHref(); a.download = ""; a.click(); return [`<span class="ok">${ui().dl}</span>`]; },
     theme: a => { const t = a === "light" || a === "dark" ? a : (curTheme() === "light" ? "dark" : "light"); setTheme(t); return [`${ui().theme} <span class="hl">${t}</span>`]; },
     lang: a => { I.set(a === "es" || a === "en" ? a : (I.lang === "es" ? "en" : "es")); return [`<span class="hl">${ui().langSet}</span>`]; },
